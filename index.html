@@ -32,6 +32,7 @@
       socket.on("event", (eventData) => {
         console.log(eventData);
         container.insertAdjacentHTML("beforeend", buildMessage(eventData));
+        container.scrollTop = container.scrollHeight;
       });
     </script>
   </body>
