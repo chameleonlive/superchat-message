@@ -1,0 +1,71 @@
+yt-live-chat-paid-message-renderer.tier1 {
+  --yt-live-chat-paid-message-primary-color: rgba(30, 136, 229, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(21, 101, 192, 1);
+  --yt-live-chat-paid-message-header-color: rgba(255, 255, 255, 1);
+  --yt-live-chat-paid-message-author-name-color: rgba(255, 255, 255, 0.701961);
+  --yt-live-chat-paid-message-timestamp-color: rgba(255, 255, 255, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(255, 255, 255, 1);
+}
+
+yt-live-chat-paid-message-renderer.tier2 {
+  --yt-live-chat-paid-message-primary-color: rgba(0, 229, 255, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(0, 184, 212, 1);
+  --yt-live-chat-paid-message-header-color: rgba(0, 0, 0, 1);
+  --yt-live-chat-paid-message-author-name-color: rgba(0, 0, 0, 0.701961);
+  --yt-live-chat-paid-message-timestamp-color: rgba(0, 0, 0, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(0, 0, 0, 1);
+}
+
+yt-live-chat-paid-message-renderer.tier3 {
+  --yt-live-chat-paid-message-primary-color: rgba(29, 233, 182, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(0, 191, 165, 1);
+  --yt-live-chat-paid-message-header-color: rgba(0, 0, 0, 1);
+  --yt-live-chat-paid-message-author-name-color: rgba(0, 0, 0, 0.541176);
+  --yt-live-chat-paid-message-timestamp-color: rgba(0, 0, 0, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(0, 0, 0, 1);
+}
+
+yt-live-chat-paid-message-renderer.tier4 {
+  --yt-live-chat-paid-message-primary-color: rgba(245, 124, 0, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(230, 81, 0, 1);
+  --yt-live-chat-paid-message-header-color: rgba(255, 255, 255, 0.87451);
+  --yt-live-chat-paid-message-author-name-color: rgba(255, 255, 255, 0.701961);
+  --yt-live-chat-paid-message-timestamp-color: rgba(255, 255, 255, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(255, 255, 255, 0.87451);
+}
+
+yt-live-chat-paid-message-renderer.tier4 {
+  --yt-live-chat-paid-message-primary-color: rgba(255, 202, 40, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(255, 179, 0, 1);
+  --yt-live-chat-paid-message-header-color: rgba(0, 0, 0, 0.87451);
+  --yt-live-chat-paid-message-author-name-color: rgba(0, 0, 0, 0.541176);
+  --yt-live-chat-paid-message-timestamp-color: rgba(0, 0, 0, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(0, 0, 0, 0.87451);
+}
+
+yt-live-chat-paid-message-renderer.tier5 {
+  --yt-live-chat-paid-message-primary-color: rgba(245, 124, 0, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(230, 81, 0, 1);
+  --yt-live-chat-paid-message-header-color: rgba(255, 255, 255, 0.87451);
+  --yt-live-chat-paid-message-author-name-color: rgba(255, 255, 255, 0.701961);
+  --yt-live-chat-paid-message-timestamp-color: rgba(255, 255, 255, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(255, 255, 255, 0.87451);
+}
+
+yt-live-chat-paid-message-renderer.tier6 {
+  --yt-live-chat-paid-message-primary-color: rgba(233, 30, 99, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(194, 24, 91, 1);
+  --yt-live-chat-paid-message-header-color: rgba(255, 255, 255, 1);
+  --yt-live-chat-paid-message-author-name-color: rgba(255, 255, 255, 0.701961);
+  --yt-live-chat-paid-message-timestamp-color: rgba(255, 255, 255, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(255, 255, 255, 1);
+}
+
+yt-live-chat-paid-message-renderer.tier7 {
+  --yt-live-chat-paid-message-primary-color: rgba(230, 33, 23, 1);
+  --yt-live-chat-paid-message-secondary-color: rgba(208, 0, 0, 1);
+  --yt-live-chat-paid-message-header-color: rgba(255, 255, 255, 1);
+  --yt-live-chat-paid-message-author-name-color: rgba(255, 255, 255, 0.701961);
+  --yt-live-chat-paid-message-timestamp-color: rgba(255, 255, 255, 0.501961);
+  --yt-live-chat-paid-message-color: rgba(255, 255, 255, 1);
+}
