@@ -1,5 +1,5 @@
 function buildMessage(event) {
-  const avatar = event.avatar === "" ? "/images/baby_duck.png" : event.avatar;
+  const avatar = event.avatar === "" ? "images/baby_duck.png" : event.avatar;
   const name = event.name;
   const displayAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
