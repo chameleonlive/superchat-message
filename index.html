@@ -36,8 +36,10 @@
       //Perform Action on event
       socket.on("event", (eventData) => {
         console.log(eventData);
-        container.insertAdjacentHTML("beforeend", buildMessage(eventData));
-        container.scrollTop = container.scrollHeight;
+        if (eventData.source !== "test") {
+          container.insertAdjacentHTML("beforeend", buildMessage(eventData));
+          container.scrollTop = container.scrollHeight;
+        }
       });
     </script>
   </body>
