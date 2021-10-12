@@ -1,12 +1,33 @@
+function getAvatarByTier(tier) {
+  switch (tier) {
+    case 1:
+      return "images/tier1.png";
+    case 2:
+      return "images/tier2.png";
+    case 3:
+      return "images/tier3.png";
+    case 4:
+      return "images/tier4.png";
+    case 5:
+      return "images/tier5.png";
+    case 6:
+      return "images/tier6.png";
+    case 7:
+      return "images/tier7.png";
+    default:
+      return "images/tier0.png";
+  }
+}
+
 function buildMessage(event) {
-  const avatar = event.avatar === "" ? "images/baby_duck.png" : event.avatar;
+  const tier = event.tier;
+  const avatar = event.avatar === "" ? getAvatarByTier(tier) : event.avatar;
   const name = event.name;
   const displayAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: event.currency,
   }).format(event.amount);
   const message = event.message;
-  const tier = event.tier;
 
   return `<yt-live-chat-paid-message-renderer
   class="style-scope yt-live-chat-item-list-renderer tier${tier}"
