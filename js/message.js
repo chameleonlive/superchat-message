@@ -19,6 +19,39 @@ function getAvatarByTier(tier) {
   }
 }
 
+function buildMembership(event) {
+  const avatar = event.avatar;
+  const name = event.name;
+  const message = event.message;
+
+  return `<yt-live-chat-membership-item-renderer class="style-scope yt-live-chat-item-list-renderer" show-only-header="">
+  <!--css-build:shady-->
+  <div id="card" class="style-scope yt-live-chat-membership-item-renderer">
+    <div id="header" class="style-scope yt-live-chat-membership-item-renderer">
+      <yt-img-shadow id="author-photo" height="40" width="40"
+        class="style-scope yt-live-chat-membership-item-renderer no-transition" loaded=""
+        style="background-color: transparent;">
+        <!--css-build:shady--><img id="img" class="style-scope yt-img-shadow" alt="" height="40" width="40"
+          src="${avatar}">
+      </yt-img-shadow>
+      <dom-if class="style-scope yt-live-chat-membership-item-renderer"><template is="dom-if"></template></dom-if>
+      <div id="header-content" class="style-scope yt-live-chat-membership-item-renderer">
+        <div id="header-content-primary-column" class="style-scope yt-live-chat-membership-item-renderer">
+          <div id="header-content-inner-column" class="style-scope yt-live-chat-membership-item-renderer">
+
+            <yt-live-chat-author-chip class="style-scope yt-live-chat-membership-item-renderer">
+              <!--css-build:shady--><span id="author-name" dir="auto"
+                class="member style-scope yt-live-chat-author-chip">${name}</span>
+            </yt-live-chat-author-chip>
+          </div>
+          <div id="header-subtext" class="style-scope yt-live-chat-membership-item-renderer">${message}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</yt-live-chat-membership-item-renderer>`;
+}
+
 function buildMessage(event) {
   const tier = event.tier;
   const avatar = event.avatar === "" ? getAvatarByTier(tier) : event.avatar;
