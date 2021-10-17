@@ -65,6 +65,7 @@ function buildMessage(event) {
   return `<yt-live-chat-paid-message-renderer
   class="style-scope yt-live-chat-item-list-renderer tier${tier}"
   allow-animations=""
+  ${message === "" ? "show-only-header" : ""}
 >
   <div id="card" class="style-scope yt-live-chat-paid-message-renderer">
     <div id="header" class="style-scope yt-live-chat-paid-message-renderer">
