@@ -32,14 +32,20 @@
   <script src="https://cdn.socket.io/4.2.0/socket.io.min.js" type="text/javascript"></script>
   <script src="js/message.js"></script>
   <script>
-    const socket = io("https://ahiruibi-superchat.herokuapp.com/");
-    // const socket = io("http://localhost:5000/");
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    const debug = params.debug === 'true';
+    const local_test = params.local_test === 'true';
+
+    const socket_url = local_test ? "http://localhost:5000/" : "https://ahiruibi-superchat.herokuapp.com/";
+    const socket = io(socket_url);
     const container = document.getElementById("container");
 
     //Perform Action on event
     socket.on("event", (eventData) => {
       console.log(eventData);
-      if (true || eventData.source !== "test") {
+      if (debug || eventData.source !== "test") {
         let message;
         if (eventData.tier == -1) {
           message = buildMembership(eventData);
