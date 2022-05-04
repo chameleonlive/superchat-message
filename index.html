@@ -37,10 +37,19 @@
 
     const debug = params.debug === 'true';
     const local_test = params.local_test === 'true';
+    const channel = params.channel;
 
-    const socket_url = local_test ? "http://localhost:5000/" : "https://ahiruibi-superchat.herokuapp.com/";
+    const socket_url = local_test ?
+      "http://localhost:5001/" :
+      channel ?
+        "https://auneed-message-gateway.herokuapp.com/" :
+        "https://ahiruibi-superchat.herokuapp.com/";
     const socket = io(socket_url);
     const container = document.getElementById("container");
+
+    if (channel) {
+      socket.emit("join", channel);
+    }
 
     //Perform Action on event
     socket.on("event", (eventData) => {
