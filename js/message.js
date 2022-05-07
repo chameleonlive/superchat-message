@@ -54,7 +54,7 @@ function buildMembership(event) {
 
 function buildMessage(event) {
   const tier = event.tier;
-  const avatar = event.avatar ?? getAvatarByTier(tier);
+  const avatar = !event.avatar ? getAvatarByTier(tier) : event.avatar;
   const name = event.name;
   const displayAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
