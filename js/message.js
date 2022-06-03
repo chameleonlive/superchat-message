@@ -21,14 +21,23 @@ function getAvatarByTier(tier) {
 
 function buildAvatar(avatar) {
   if (avatar) {
-    return `<img
-    id="img"
-    class="style-scope yt-img-shadow"
-    alt=""
+    return `<yt-img-shadow
+    id="author-photo"
     height="40"
     width="40"
-    src="${avatar}"
-  />`;
+    class="style-scope yt-live-chat-paid-message-renderer no-transition"
+    loaded=""
+    style="background-color: transparent"
+  >
+    <img
+      id="img"
+      class="style-scope yt-img-shadow"
+      alt=""
+      height="40"
+      width="40"
+      src="${avatar}"
+    />
+  </yt-img-shadow>`;
   }
   return "";
 }
@@ -88,16 +97,7 @@ function buildMessage(event) {
 >
   <div id="card" class="style-scope yt-live-chat-paid-message-renderer">
     <div id="header" class="style-scope yt-live-chat-paid-message-renderer">
-      <yt-img-shadow
-        id="author-photo"
-        height="40"
-        width="40"
-        class="style-scope yt-live-chat-paid-message-renderer no-transition"
-        loaded=""
-        style="background-color: transparent"
-      >
-        ${buildAvatar(avatar)}
-      </yt-img-shadow>
+      ${buildAvatar(avatar)}
       <div
         id="header-content"
         class="style-scope yt-live-chat-paid-message-renderer"
