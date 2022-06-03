@@ -19,6 +19,20 @@ function getAvatarByTier(tier) {
   }
 }
 
+function buildAvatar(avatar) {
+  if (avatar) {
+    return `<img
+    id="img"
+    class="style-scope yt-img-shadow"
+    alt=""
+    height="40"
+    width="40"
+    src="${avatar}"
+  />`;
+  }
+  return "";
+}
+
 function buildMembership(event) {
   const avatar = event.avatar;
   const name = event.name;
@@ -54,7 +68,12 @@ function buildMembership(event) {
 
 function buildMessage(event) {
   const tier = event.tier;
-  const avatar = !event.avatar ? getAvatarByTier(tier) : event.avatar;
+  let avatar = "";
+  if (event.channel) {
+    avatar = event.avatar;
+  } else {
+    avatar = !event.avatar ? getAvatarByTier(tier) : event.avatar;
+  }
   const name = event.name;
   const displayAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -77,14 +96,7 @@ function buildMessage(event) {
         loaded=""
         style="background-color: transparent"
       >
-        <img
-          id="img"
-          class="style-scope yt-img-shadow"
-          alt=""
-          height="40"
-          width="40"
-          src="${avatar}"
-        />
+        ${buildAvatar(avatar)}
       </yt-img-shadow>
       <div
         id="header-content"
