@@ -69,6 +69,10 @@
     setInterval(() => {
       socket.emit("ping");
     }, 300000);
+
+    setInterval(() => {
+      document.querySelectorAll(".platform-test").forEach(elem => elem.remove());
+    }, 10000);
   </script>
 </body>
 

@@ -91,7 +91,7 @@ function buildMessage(event) {
   const message = event.message;
 
   return `<yt-live-chat-paid-message-renderer
-  class="style-scope yt-live-chat-item-list-renderer tier${tier}"
+  class="style-scope yt-live-chat-item-list-renderer tier${tier} platform-${event.platform}"
   allow-animations=""
   ${message === "" ? "show-only-header" : ""}
 >
