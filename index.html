@@ -65,6 +65,10 @@
         container.scrollTop = container.scrollHeight;
       }
     });
+
+    setInterval(() => {
+      socket.emit("ping");
+    }, 300000);
   </script>
 </body>
 
