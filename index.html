@@ -22,6 +22,7 @@
       height: 100vh;
       overflow-y: auto;
     }
+
   </style>
 </head>
 
@@ -40,10 +41,8 @@
     const channel = params.channel;
 
     const socket_url = local_test ?
-      "http://localhost:5001/" :
-      channel ?
-        "https://auneed-message-gateway.herokuapp.com/" :
-        "https://ahiruibi-superchat.herokuapp.com/";
+      "http://localhost:4123/" :
+      "https://gateway.ahiruibi.moe/";
     const socket = io(socket_url);
     const container = document.getElementById("container");
 
