@@ -23,12 +23,31 @@
       overflow-y: auto;
     }
 
+    #status {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    #status[status=checking] {
+      color: grey;
+    }
+
+    #status[status=online] {
+      color: green;
+    }
+
+    #status[status=offline] {
+      color: red;
+    }
+
   </style>
 </head>
 
 <body>
   <div id="container">
   </div>
+  <div id="status" status="checking">&#10026;</div>
 
   <script src="https://cdn.socket.io/4.2.0/socket.io.min.js" type="text/javascript"></script>
   <script src="js/message.js"></script>
@@ -41,10 +60,13 @@
     const channel = params.channel;
 
     const socket_url = local_test ?
-      "http://localhost:4123/" :
-      "https://gateway.ahiruibi.moe/";
+      "http://localhost:6123" :
+      "https://gateway.ahiruibi.moe";
     const socket = io(socket_url);
     const container = document.getElementById("container");
+
+    socket.on("connect", checkStatus);
+    socket.on("disconnect", checkStatus);
 
     if (channel) {
       socket.emit("join", channel);
@@ -65,9 +87,23 @@
       }
     });
 
-    setInterval(() => {
-      socket.emit("ping");
-    }, 300000);
+    function setStatus(status) {
+      document.querySelector("#status").setAttribute("status", status);
+    }
+
+    function checkStatus() {
+      fetch(`${socket_url}/ping`, { signal: AbortSignal.timeout(5000) }).then((res) => {
+        if (res.status == 200 && socket.connected) {
+          setStatus("online");
+        } else {
+          setStatus("offline");
+        }
+      }).catch((err) => {
+        setStatus("offline");
+      });
+    }
+
+    setInterval(checkStatus, 10000);
 
     setInterval(() => {
       document.querySelectorAll(".platform-test").forEach(elem => elem.remove());
