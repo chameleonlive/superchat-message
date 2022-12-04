@@ -1,27 +1,33 @@
-function getAvatarByTier(tier) {
+function getAvatarByTier(channel, tier) {
+  const supportedChannels = ["AHIRUIBI"];
+  if (!supportedChannels.includes(channel)) {
+    return "";
+  }
   switch (tier) {
     case 1:
-      return "images/tier1.png";
+      return `images/${channel}/tier1.png`;
     case 2:
-      return "images/tier2.png";
+      return `images/${channel}/tier2.png`;
     case 3:
-      return "images/tier3.png";
+      return `images/${channel}/tier3.png`;
     case 4:
-      return "images/tier4.png";
+      return `images/${channel}/tier4.png`;
     case 5:
-      return "images/tier5.png";
+      return `images/${channel}/tier5.png`;
     case 6:
-      return "images/tier6.png";
+      return `images/${channel}/tier6.png`;
     case 7:
-      return "images/tier7.png";
+      return `images/${channel}/tier7.png`;
     default:
-      return "images/tier0.png";
+      return `images/${channel}/tier0.png`;
   }
 }
 
 function buildAvatar(avatar) {
-  if (avatar) {
-    return `<yt-img-shadow
+  if (!avatar) {
+    return "";
+  }
+  return `<yt-img-shadow
     id="author-photo"
     height="40"
     width="40"
@@ -38,8 +44,6 @@ function buildAvatar(avatar) {
       src="${avatar}"
     />
   </yt-img-shadow>`;
-  }
-  return "";
 }
 
 function buildMembership(event) {
@@ -77,12 +81,7 @@ function buildMembership(event) {
 
 function buildMessage(event) {
   const tier = event.tier;
-  let avatar = "";
-  if (event.channel) {
-    avatar = event.avatar;
-  } else {
-    avatar = !event.avatar ? getAvatarByTier(tier) : event.avatar;
-  }
+  const avatar = event.avatar ? event.avatar : getAvatarByTier(event.channel, tier);
   const name = event.name;
   const displayAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -91,7 +90,9 @@ function buildMessage(event) {
   const message = event.message;
 
   return `<yt-live-chat-paid-message-renderer
-  class="style-scope yt-live-chat-item-list-renderer tier${tier} platform-${event.platform}"
+  class="style-scope yt-live-chat-item-list-renderer tier${tier} platform-${
+    event.platform
+  }"
   allow-animations=""
   ${message === "" ? "show-only-header" : ""}
 >
