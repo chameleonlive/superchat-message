@@ -23,6 +23,32 @@
       overflow-y: auto;
     }
 
+    #container.horizontal {
+      height: 160px;
+      width: auto;
+      overflow-y: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    #container.horizontal #message {
+      height: 42px;
+      white-space: normal;
+      overflow-y: hidden;
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    #container.horizontal #card {
+      width: 480px;
+    }
+
+    #container.horizontal yt-live-chat-paid-message-renderer {
+      display: inline-block;
+    }
+
     #status {
       text-align: right;
       font-size: 20px;
@@ -40,7 +66,6 @@
     #status[status=offline] {
       color: red;
     }
-
   </style>
 </head>
 
@@ -58,12 +83,17 @@
     const debug = params.debug === 'true';
     const local_test = params.local_test === 'true';
     const channel = params.channel;
+    const horizontal = params.horizontal;
 
     const socket_url = local_test ?
       "http://localhost:6123" :
       "https://gateway.ahiruibi.moe";
     const socket = io(socket_url);
     const container = document.getElementById("container");
+
+    if (horizontal) {
+      container.classList.add("horizontal");
+    }
 
     socket.on("connect", checkStatus);
     socket.on("disconnect", checkStatus);
@@ -83,7 +113,11 @@
           message = buildMessage(eventData);
         }
         container.insertAdjacentHTML("beforeend", message);
-        container.scrollTop = container.scrollHeight;
+        if (horizontal) {
+          container.scrollLeft = container.scrollWidth;
+        } else {
+          container.scrollTop = container.scrollHeight;
+        }
       }
     });
 
